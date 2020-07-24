@@ -24,20 +24,12 @@ Route::prefix('usuarios')->group(function() {
     /**
      * Obtener usuarios [ +pedidos +libros]
      */
-    
-     Route::get('/', function (Request $request) {
-         return json_encode(['Usuario' => []]);
-     })
-     ->name('obtenerUsuarios');
+     Route::get('/','UsuarioController@obtenerUsuarios')->name('obtenerUsuarios');
     
     /**
      * Crear un usuario
      */
-    
-    Route::post('/', function (Request $request) {
-        return json_encode(['Usuario' => []]);
-    })
-    ->name('crearUsuarios');
+    Route::post('/', 'UsuarioController@crearUsuarios')->name('crearUsuarios');
 });
 
 /**
@@ -47,20 +39,12 @@ Route::prefix('bibliotecas')->group(function() {
     /**
      * Obtener bibliotecas [ +pedidos +libros]
      */
-    
-    Route::get('/', function (Request $request) {
-        return json_encode(['Bibliotecas' => []]);
-    })
-    ->name('obtenerBibliotecas');
+    Route::get('/', 'BibliotecaController@obtenerBibliotecas')->name('obtenerBibliotecas');
     
     /**
      * Crear una biblioteca
      */
-    
-    Route::post('/', function (Request $request) {
-        return json_encode(['Biblioteca' => []]);
-    })
-    ->name('crearBibliotecas');
+    Route::post('/', 'BibliotecaController@crearBibliotecas')->name('crearBibliotecas');
 });
 
 /**
@@ -70,34 +54,20 @@ Route::prefix('libros')->group(function() {
     /**
      * Obtener libros [ +pedidos +usuarios +estado ]
      */
-    
-    Route::get('/', function (Request $request) {
-        return json_encode(['Libros' => []]);
-    })
-    ->name('obtenerLibros');
+    Route::get('/', 'LibroController@obtenerLibros')->name('obtenerLibros');
     
     /**
      * Crear un libros
      */
-    
-    Route::post('/', function (Request $request) {
-        return json_encode(['Libro' => []]);
-    })
-    ->name('crearLibros');
+    Route::post('/', 'LibroController@crearLibros')->name('crearLibros');
 });
 
 /**
  * Pedir un libro
  */
-Route::post('/pedidos/usuario/{usurio_id}/libro/{libro_id}', function ($usuario_id, $libro_id) {
-    return json_encode(['usuario_id' => $usuario_id, 'libro_id' => $libro_id]);
-})
-->name('pedirLibros');
+Route::post('/pedidos/usuario/{usurio_id}/libro/{libro_id}', 'PedidoController@pedirLibros')->name('pedirLibros');
 
 /**
  * Regresar un libro
  */
-Route::post('/entregas/usuario/{usurio_id}/libro/{libro_id}', function ($usuario_id, $libro_id) {
-    return json_encode(['usuario_id' => $usuario_id, 'libro_id' => $libro_id]);
-})
-->name('entregarLibros');
+Route::put('/entregas/usuario/{usurio_id}/libro/{libro_id}', 'PedidoController@entregarLibros')->name('entregarLibros');

@@ -8,57 +8,22 @@ use Illuminate\Http\Request;
 class BibliotecaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obtener bibliotecas
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function obtenerBibliotecas()
     {
-        //
+        return json_encode(['Bibliotecas' => []]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Crear bibliotecas
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function crearBibliotecas()
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Biblioteca  $biblioteca
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Biblioteca $biblioteca)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Biblioteca  $biblioteca
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Biblioteca $biblioteca)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Biblioteca  $biblioteca
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Biblioteca $biblioteca)
-    {
-        //
+        return json_encode(['Bibliotecas' => []]);
     }
 }

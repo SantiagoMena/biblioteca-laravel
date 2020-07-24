@@ -8,57 +8,22 @@ use Illuminate\Http\Request;
 class LibroController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obtener Libros
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function obtenerLibros()
     {
-        //
+        return json_encode(['Libros' => []]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Crear Libros
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function crearLibros()
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Libro  $libro
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Libro $libro)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Libro  $libro
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Libro $libro)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Libro  $libro
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Libro $libro)
-    {
-        //
+        return json_encode(['Libros' => []]);
     }
 }

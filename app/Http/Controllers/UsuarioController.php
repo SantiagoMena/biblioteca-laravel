@@ -8,57 +8,22 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obtener usuarios
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function obtenerUsuarios()
     {
-        //
+        return json_encode(['Usuario' => []]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Crear usuarios
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function crearUsuarios()
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Usuario $usuario)
-    {
-        //
+        return json_encode(['Usuario' => []]);
     }
 }
