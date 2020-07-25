@@ -14,7 +14,8 @@ class UsuarioController extends Controller
      */
     public function obtenerUsuarios()
     {
-        return json_encode(['Usuario' => []]);
+        $usuario = new Usuario();
+        return $usuario::todos();
     }
 
     /**
