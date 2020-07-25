@@ -20,10 +20,11 @@ class BibliotecaController extends Controller
     /**
      * Crear bibliotecas
      *
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function crearBibliotecas()
+    public function crearBibliotecas(Request $request)
     {
-        return json_encode(['Bibliotecas' => []]);
+        return Biblioteca::crear($request);
     }
 }

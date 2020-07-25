@@ -39,4 +39,33 @@ class Biblioteca extends Model
             ];
         }
     }
+
+    /**
+     * Crear biblioteca
+     */
+    public static function crear($request): array
+    {
+        try {
+            $biblioteca = new self();
+            $biblioteca->nombre = $request->nombre;
+            $isSave = $biblioteca->save();
+
+            if($isSave) {
+                return [
+                    'error' => false,
+                    'Biblioteca' => $biblioteca->toArray()
+                ];
+            } else {
+                return [
+                    'error' => true,
+                    'mensaje' => 'Error al guardar la biblioteca'
+                ];
+            }
+        } catch (\Throwable $th) {
+            return [
+                'error' => true,
+                'mensaje' => 'Error al guardar la biblioteca'
+            ];
+        }
+    }
 }
