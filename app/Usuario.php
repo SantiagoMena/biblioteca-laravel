@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class Usuario extends Model
 {
@@ -24,8 +25,7 @@ class Usuario extends Model
     public static function todos(): array
     {
         try {
-            $usuarios = self::all()
-                            ->toArray();
+            $usuarios = DB::table('usuarios')->select('id', 'nombre')->get();
             return [
                 'error' => false,
                 'Usuarios' => $usuarios
@@ -33,13 +33,36 @@ class Usuario extends Model
         } catch (\Throwable $th) {
             return [
                 'error' => true,
-                'mensaje' => 'Error al traer los usuarios'
+                'mensaje' => $th->errorInfo
             ];
         }
     }
 
     public static function crear($request): array
     {
-        return self::all()->toArray();
+        try {
+            $usuario = new self;
+            $usuario->nombre = $request->nombre;
+            $isSave = $usuario->save();
+
+            if($isSave) {
+                return [
+                    'error' => false,
+                    'Usuario' =>  $usuario->toArray() 
+                ];
+            } else {
+                return [
+                    'error' => true,
+                    'Usuario' =>  'Error al guardar el usuario' 
+                ];
+            }
+
+        } catch (\Throwable $th) {
+            return [
+                'error' => true,
+                'mensaje' => $th->errorInfo
+            ];
+        }
+
     }
 }
