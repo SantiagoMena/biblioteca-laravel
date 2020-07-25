@@ -14,7 +14,7 @@ class BibliotecaController extends Controller
      */
     public function obtenerBibliotecas()
     {
-        return json_encode(['Bibliotecas' => []]);
+        return Biblioteca::todos();
     }
 
     /**
