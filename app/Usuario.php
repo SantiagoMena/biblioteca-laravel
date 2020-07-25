@@ -10,6 +10,17 @@ class Usuario extends Model
     use SoftDeletes;
     protected $table = 'usuarios';
 
+    /**
+     * Relationships
+     */
+    public function pedidos(): object
+    {
+        return $this->hasMany('App\Pedido', 'usuario_id', 'id');
+    }
+
+    /**
+     * Functions
+     */
     public static function todos(): array
     {
         try {
