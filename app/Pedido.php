@@ -83,4 +83,48 @@ class Pedido extends Model
             ];
         }
     }
+
+    public static function pedir(int $usuario_id, int $libro_id): array
+    {
+        try {
+            $libro = Libro::find($libro_id);
+            if(!$libro) {
+                return [
+                    'error' => true,
+                    'mensaje' => 'El libro no existe'
+                ];
+            }
+
+            $pedidoExistente = self::where('libro_id', $libro_id)
+                                    ->where('estado', 'Prestado')
+                                    ->first();
+            if($pedidoExistente) {
+                return [
+                    'error' => true,
+                    'mensaje' => 'El libro se encuentra prestado por el momento'
+                ];
+            }
+
+            $pedido = new self();
+            $pedido->estado = 'Prestado';
+            $pedido->usuario_id = $usuario_id;
+            $pedido->libro_id = $libro_id;
+            if($pedido->save()) {
+                return [
+                    'error' => false,
+                    'Pedido' => $pedido
+                ];
+            } else {
+                return [
+                    'error' => true,
+                    'Pedido' => 'Error al guardar el pedido'
+                ];
+            }
+        } catch (\Throwable $th) {
+            return [
+                'error' => true,
+                'mensaje' => $th
+            ];
+        }
+    }
 }

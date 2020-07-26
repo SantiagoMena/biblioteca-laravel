@@ -12,9 +12,9 @@ class PedidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function pedirLibros($usuario_id, $libro_id)
+    public function pedirLibros(int $usuario_id, int $libro_id)
     {
-        return json_encode(['usuario_id' => $usuario_id, 'libro_id' => $libro_id]);
+        return Pedido::pedir($usuario_id, $libro_id);
     }
 
     /**
