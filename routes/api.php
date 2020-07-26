@@ -63,6 +63,11 @@ Route::prefix('libros')->group(function() {
 });
 
 /**
+ * Todos los pedidos
+ */
+Route::get('/pedidos', 'PedidoController@obtenerPedidos')->name('obtenerPedidos');
+
+/**
  * Pedir un libro
  */
 Route::post('/pedidos/usuario/{usurio_id}/libro/{libro_id}', 'PedidoController@pedirLibros')->name('pedirLibros');
