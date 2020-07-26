@@ -21,6 +21,7 @@ class CreateBibliotecasTable extends Migration
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
+            $table->softDeletes();
 
             //  Table Columns
             $table->string('nombre')

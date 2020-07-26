@@ -14,16 +14,20 @@ class UsuarioController extends Controller
      */
     public function obtenerUsuarios()
     {
-        return json_encode(['Usuario' => []]);
+        $usuario = new Usuario();
+        return $usuario::todos();
     }
 
     /**
      * Crear usuarios
      *
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function crearUsuarios()
+    public function crearUsuarios(Request $request)
     {
-        return json_encode(['Usuario' => []]);
+        $usuario = new Usuario();
+
+        return $usuario::crear($request);
     }
 }

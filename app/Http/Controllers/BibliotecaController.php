@@ -14,16 +14,17 @@ class BibliotecaController extends Controller
      */
     public function obtenerBibliotecas()
     {
-        return json_encode(['Bibliotecas' => []]);
+        return Biblioteca::todos();
     }
 
     /**
      * Crear bibliotecas
      *
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function crearBibliotecas()
+    public function crearBibliotecas(Request $request)
     {
-        return json_encode(['Bibliotecas' => []]);
+        return Biblioteca::crear($request);
     }
 }

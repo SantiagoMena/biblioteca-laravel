@@ -14,16 +14,16 @@ class LibroController extends Controller
      */
     public function obtenerLibros()
     {
-        return json_encode(['Libros' => []]);
+        return Libro::todos();
     }
 
     /**
      * Crear Libros
-     *
+     *  
      * @return \Illuminate\Http\Response
      */
-    public function crearLibros()
+    public function crearLibros(Request $request)
     {
-        return json_encode(['Libros' => []]);
+        return Libro::crear($request);
     }
 }
